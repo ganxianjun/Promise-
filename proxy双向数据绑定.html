@@ -1,0 +1,38 @@
+<HTML>
+<HEAD>
+<TITLE>proxy 双向数据绑定</TITLE>
+</HEAD>
+<BODY>
+    <input id="input_el" oninput="handleInput(this)" />
+    <div id="div_el"></div>
+</BODY>
+</HTML>
+<script type="text/javascript">
+    function proxy_bind(target) {
+        return new Proxy(target, {
+            get(obj, props) {
+                if (!obj[props]) obj[props] = 'hello';
+                return obj[props];
+            },
+            set(obj, props, newValue) {
+                obj[props] = newValue;
+                document.getElementById('div_el').innerText = newValue;
+                return;
+            }
+        });
+    }
+    const obj = {};
+    const proxy_obj = proxy_bind(obj);
+
+    (function() {
+        document.getElementById('input_el').value = proxy_obj.value;
+        document.getElementById('div_el').innerText = proxy_obj.value;
+    })();
+
+    function handleInput(target) {
+        proxy_obj.value = target.value;
+        console.log(obj);
+    }
+
+    
+</script>
