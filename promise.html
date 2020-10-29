@@ -1,0 +1,24 @@
+ <HTML>
+ <HEAD>
+ <TITLE>html 模板</TITLE>
+ </HEAD>
+ <BODY>
+    <div>promise</div>
+<script src='./Promise.js'></script>
+<script type="text/javascript">
+    const person = new Promises((resolve, reject) => {
+        reject('22ww');
+    });
+    person.catch(
+        value => console.log(value),
+        reson => console.log('111', reson)
+    );
+    // new Promise((resolve, reject) => {
+    //     resolve('777');
+    // }).then(
+    //     value => {console.log('value', value)},
+    //     reson => {console.log('value2', reson)}
+    // )
+</script>
+ </BODY>
+ </HTML>
