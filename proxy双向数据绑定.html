@@ -5,34 +5,67 @@
 <BODY>
     <input id="input_el" oninput="handleInput(this)" />
     <div id="div_el"></div>
+    <br>
+    <div>
+        <p>proxy 用于定义自定义的行为：属性的查询，赋值，枚举和函数调用等行为</p>
+        <p>
+            语法：const p = new Proxy(target, handler);
+        </p>
+        <p>target: 目标对象，可以包含（可以是任意类型的对象，包含原生数组，函数，或者另一个代理对象）</p>
+        <p>handler: 代表了代理p的行为</p>
+        <p>方法：Proxy.revocable(), 创建一个可以撤回的proxy对象</p>
+        <p>handle的方法:(目前有14种，废除了一种剩13种)</p>
+        <p>handler.get</p>
+        <p>handler.set</p>
+        <p>handler.has</p>
+        <p>handler.getPrototypeOf</p>
+        <p>handler.setPrototypeof</p>
+        <p>handler.deleteProperty</p>
+        <p>handler.construct</p>
+        <p>handler.apply</p>
+        <p>handler.ownkeys</p>
+        <p>handler.defineProperty</p>
+        <p>handler.isExtensible()</p>
+        <p>handler.preventExtensions()</p>
+        <p>handler.getOwnPropertyDescriptor()</p>
+    </div>
 </BODY>
 </HTML>
 <script type="text/javascript">
+    // 定义一个proxy代理函数
     function proxy_bind(target) {
-        return new Proxy(target, {
-            get(obj, props) {
-                if (!obj[props]) obj[props] = 'hello';
-                return obj[props];
+        const handler = {
+            get(target, propsKey) {
+                // 这里只是为了给原对象赋值，并不会触发代理对象的set
+                if (!target[propsKey]) target[propsKey] = 'hello';
+                return target[propsKey];
             },
-            set(obj, props, newValue) {
-                obj[props] = newValue;
+            set(target, propsKey, newValue) {
+                target[propsKey] = newValue;
                 document.getElementById('div_el').innerText = newValue;
                 return;
+            },
+            deleteProperty(target, propsKey) {
+                if (propsKey in target) return false;
+                return delete target[propsKey];
             }
-        });
+        };
+        // Proxy的语法
+        return new Proxy(target, handler);
     }
+    // 原对象
     const obj = {};
+    // proxy代理对象
     const proxy_obj = proxy_bind(obj);
 
     (function() {
+        // 这里是初始值设定
         document.getElementById('input_el').value = proxy_obj.value;
         document.getElementById('div_el').innerText = proxy_obj.value;
     })();
 
+    // 输入框的输入值的设置
     function handleInput(target) {
         proxy_obj.value = target.value;
-        console.log(obj);
     }
-
-    
 </script>
