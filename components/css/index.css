@@ -1,0 +1,61 @@
+h1 {
+    color: #f00;
+}
+div ~ p {
+    color: blue;
+}
+p[class~="tagP"] {
+    color: #ccc;
+}
+p[title] {
+    font-size: 28px;
+}
+
+p[title*="T" i] {
+    color: #909;
+}
+/* empty */
+.div_style {
+    width: 80px;
+    height: 80px;
+    background: #333;
+}
+.div_style:empty {
+    background: #f00;
+}
+/* first-of-type */
+ul :first-of-type {
+  background-color: pink;
+}
+/* first-child */
+p:not(0) {
+  color: lime;
+  background-color: black;
+  padding: 5px;
+}
+p[class="first-line"] {
+    width: 180px;
+    margin-left: 100px;
+}
+
+p[class="first-line"]::first-line {
+    text-indent: -2em;
+}
+
+p[class="first-line"]::after {
+    content: 'hellow world'
+}
+
+/* 文本两端对齐 */
+.text-css span {
+    width: 100px;
+    text-align: justify;
+    display: inline-block;
+}
+.text-css span:after{
+    content:'.';
+    width: 100%;
+    display: inline-block;
+    overflow: hidden;
+    height: 0;
+}
