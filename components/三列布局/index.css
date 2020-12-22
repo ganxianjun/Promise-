@@ -1,0 +1,40 @@
+* {
+    box-sizing: border-box;
+}
+/* flex 布局 */
+/* #flex_wrapper{
+    height: 200px;
+    display: flex;
+}
+.flex_right,
+.flex_left {
+    width: 100px;
+    background: #f00;
+}
+.flex_center {
+    flex: 1;
+    background: #ccc;
+} */
+
+/* loat */
+
+.flex_right,
+.flex_left {
+    width: 100px;
+    height: 100px;
+    background: #f00;
+}
+.flex_left {
+    float: left;
+}
+.flex_right {
+    float: right;
+    position: relative;
+    top: -100px;
+}
+.flex_center {
+    padding: 0 100px;
+    width: 100%;
+    height: 100px;
+    background: #ccc;
+}
