@@ -1,0 +1,22 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>BFC</title>
+        <!-- 标注盒模型 -->
+        <!-- <link rel="stylesheet" href="./index.css"> -->
+        <!-- ie盒模型 -->
+        <link rel="stylesheet" href="./indexIe.css">
+    </head>
+    <body>
+        <div>
+            <h3>盒模型：</h3>
+            <p>分类：标准盒模型和ie（怪异）盒模型</p>
+            <p>包括：margin + border + padding + width</P>
+            <p>标注盒模型：width === content <b>设置： box-sizing: content-box</b></p>
+            <p>ie（怪异）盒模型：width === content + border + padding, <b>设置： box-sizing: border-box</b></p>
+            <p>box-sizing: content-box/border-box/inhrit;</p>
+        </div>
+        <div class="box">盒模型</div>
+    </body>
+</html>

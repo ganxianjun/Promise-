@@ -38,3 +38,15 @@ git的工作流：
 for in ; for of;
 生命周期：
 css的问题：
+new作用
+1. 创建空对象
+2. 将构造函数的作用域(this)赋给对象
+3. 初始化对象
+4. 将对象返回
+
+如果不用new操作符而直接调用，那么构造函数的执行对象就 是window，即this指向了window。现在用new操作符后，this就指向了新生成的对象
+
+当参数是一个字符串或一个数字，
+它会使用new RegExp(obj)来隐式转换成一个 RegExp;
+var sr = '9dad65';
+str.match(65); // 返回["65"]

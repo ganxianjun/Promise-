@@ -1,0 +1,32 @@
+/* #wrapper {
+    display: inline-block;
+} */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+#wrapper {
+    width: 200px;
+    height: 200px;
+    border: 1px solid;
+    /* overflow: hidden; */
+}
+#div_1 {
+    float:left;
+    width: 100px;
+    height: 100px;
+    background: red;
+}
+#div_2 {
+    overflow: hidden;
+}
+
+.triabgle {
+    width: 0px;
+    height: 0px;
+    border: 20px solid;
+    border-top-color: transparent;
+    border-left-color: transparent;
+    border-right-color: transparent;
+}
