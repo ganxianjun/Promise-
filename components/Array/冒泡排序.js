@@ -3,6 +3,8 @@
  * mathod 冒泡排序
 */
 
+// 1.原理：比较两个相邻的元素，将值大的元素交换到右边
+
 const arr = [1, 2, 4, 3, 1];
 // 冒泡排序
 function bubuleSort(arr) {

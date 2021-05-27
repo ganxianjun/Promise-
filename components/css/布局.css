@@ -1,0 +1,129 @@
+/*
+ * author ganxianjun
+ * 布局的实现方式
+ * flex, position, float, grid, table 
+*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* flex 有一定的兼容性*/
+.flex-w {
+    display: flex;
+}
+.table-l,
+.table-r,
+.float-l,
+.float-r,
+.position-l,
+.position-r,
+.flex-l,
+.flex-r {
+    width: 200px;
+    height: 100px;
+    background: #000;
+    border: 1px solid;
+}
+.flex-c {
+    flex: 1;
+    background: #ccc;
+}
+.flex-l {
+    order: -1;
+}
+
+/* position */
+.position-w {
+    position: relative;
+}
+.position-l,
+.position-r {
+    position: absolute;
+    top: 0;
+}
+.position-l {
+    left: 0;
+}
+.position-r {
+    right: 0;
+}
+.position-c {
+    width: 100%;
+    height: 100px;
+    background: #cf0;
+    padding: 0 200px;
+}
+/* float calc */
+.float-w {
+    display: inline-block;
+}
+.float-l {
+    float: left;
+}
+.float-r {
+    float: left;
+}
+.float-c {
+    float: left;
+    width: calc(100% - 400px);
+}
+.blue {
+    font-size: 24;
+    color: blue;
+}
+.red {
+    font-size: 24;
+    color: red;
+}
+/* table */
+.table-w {
+    display: table;
+}
+.table-l,
+.table-c,
+.table-r {
+    display: table-cell;
+    /* 注意，必须min-width */
+    min-width: 200px;
+}
+.table-c {
+    width: 100%;
+}
+/* grid */
+.grid-w {
+    display: grid;
+    height: 100px;
+    /* 注意带单位px,或者百分比 33% */
+    grid-template-columns: 200px auto 200px;
+    grid-template-rows: 100px;
+}
+
+.grid-l,
+.grid-r {
+    background: #f0f;
+}
+.grid-c {
+    background: #f00;
+}
+
+/* float 2布局 */
+.float-w-2 {
+    margin-top: 20px;
+    height: 200px;
+}
+.float-l-2,
+.float-r-2 {
+    width: 200px;
+    float: left;
+    background: green;
+}
+
+.float-r-2 {
+    float: right;
+}
+.float-c-2 {
+    margin: auto 200px;
+}
